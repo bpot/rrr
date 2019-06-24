@@ -39,7 +39,7 @@ type RRR struct {
 }
 
 // NewFromBitVector builds a compressed bitvector from the bits in bv
-func NewFromBitVector(uncompressed bv.Static) (*RRR, error) {
+func NewFromBitVector(uncompressed *bv.BV) (*RRR, error) {
 	blockCount := (uncompressed.Size() + (t - 1)) / t
 	blockTypes := bv.New(int(blockTypeWidth * blockCount))
 	superBlockBTRPtrs := make([]uint64, (blockCount+blocksPerSuperblock-1)/blocksPerSuperblock)
